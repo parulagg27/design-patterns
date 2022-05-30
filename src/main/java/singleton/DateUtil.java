@@ -8,14 +8,16 @@ public class DateUtil {
 
     private DateUtil() {
     }
-
-    private static DateUtil dateUtil;
+    /*
+    * thread-unsafe lazy-loaded singleton
+    */
+    private static DateUtil dateUtilInstance;
 
     public static DateUtil getInstance() {
-        if (null == dateUtil) {
-            dateUtil = new DateUtil();
+        if (null == dateUtilInstance) {
+            dateUtilInstance = new DateUtil();
         }
-        return dateUtil;
+        return dateUtilInstance;
     }
 
     public Instant toInstant(LocalDate localDate){
