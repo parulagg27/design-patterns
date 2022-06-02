@@ -15,6 +15,11 @@ public class DateUtil {
 
     public static DateUtil getInstance() {
         if (null == dateUtilInstance) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
             dateUtilInstance = new DateUtil();
         }
         return dateUtilInstance;

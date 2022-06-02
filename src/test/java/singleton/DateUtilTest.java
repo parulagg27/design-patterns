@@ -4,13 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.concurrent.CompletableFuture;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class DateUtilTest {
 
     @Test
-    void shouldReturnSameDateUtilInstanceForMultipleCallsInSameThread() {
+    void shouldReturnSameDateUtilInstanceForMultipleCallsInSameThread(){
         var dateUtil1 = DateUtil.getInstance();
         var dateUtil2 = DateUtil.getInstance();
         var dateUtil3 = DateUtil.getInstance();
@@ -29,5 +31,15 @@ class DateUtilTest {
         var date = dateUtil.toInstant(localDate);
 
         assertEquals(expectedInstant, date);
+    }
+
+    @Test
+    void shouldVerifyThatClassInstantiationIsThreadUnsafe() {
+        var task1 = CompletableFuture.supplyAsync(DateUtil::getInstance);
+        var task2 = CompletableFuture.supplyAsync(DateUtil::getInstance);
+        var instance1 = task1.join();
+        var instance2 = task2.join();
+
+        assertNotEquals(instance1, instance2);
     }
 }
