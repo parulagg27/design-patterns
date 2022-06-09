@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DateUtilTest {
 
     @Test
-    void shouldReturnSameDateUtilInstanceForMultipleCallsInSameThread(){
+    void shouldReturnSameDateUtilInstanceForMultipleCallsInSameThread() {
         var dateUtil1 = DateUtil.getInstance();
         var dateUtil2 = DateUtil.getInstance();
         var dateUtil3 = DateUtil.getInstance();
