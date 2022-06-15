@@ -4,7 +4,7 @@ import factory.domain.TransportType;
 
 public class TransportFactory {
 
-    private TransportFactory(){
+    private TransportFactory() {
     }
 
     public static Transport getTransport(TransportType transportType) {

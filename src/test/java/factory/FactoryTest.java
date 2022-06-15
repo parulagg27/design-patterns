@@ -11,10 +11,9 @@ class FactoryTest {
     @Test
     void shouldBeAbleToDeliverCargoViaTrack() {
         var transport = TransportFactory.getTransport(TRUCK);
-        var expectedStatus = "Loaded cargo on truck.\n" + "Delivery initiated via truck.";
         transport.loadCargo();
-
         transport.deliver();
+        var expectedStatus = "Loaded cargo on truck.\n" + "Delivery initiated via truck.";
 
         assertEquals(expectedStatus, transport.getCargoStatus());
     }
@@ -22,10 +21,9 @@ class FactoryTest {
     @Test
     void shouldBeAbleToDeliverCargoViaShip() {
         var transport = TransportFactory.getTransport(SHIP);
-        var expectedStatus = "Loaded cargo on ship.\n" + "Delivery shipment initiated.";
         transport.loadCargo();
-
         transport.deliver();
+        var expectedStatus = "Loaded cargo on ship.\n" + "Delivery shipment initiated.";
 
         assertEquals(expectedStatus, transport.getCargoStatus());
     }
