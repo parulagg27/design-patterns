@@ -45,5 +45,11 @@ class BuilderPatternTest {
         var pizzaSummary = summaryBuilder.getOrderSummary();
 
         assertEquals(expectedPizzaSummary.summary(), pizzaSummary.summary());
+        assertEquals(pizzaSummary.summary(), "Pizza: VEG_EXTRAVAGANZA\n" +
+            "Toppings added: [CHEESE, PANEER, MUSHROOM, ONION, TOMATO, JALAPENO]\n" +
+            "Price: 320\n" +
+            "Size: 6\n" +
+            "Quantity: 1\n" +
+            "Total Amount: 320\n");
     }
 }

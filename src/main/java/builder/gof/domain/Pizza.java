@@ -43,7 +43,7 @@ public class Pizza {
     }
 
     public boolean isInValidQuantity(Integer quantity) {
-        return quantity < 0;
+        return quantity <= 0;
     }
 
     @Override
