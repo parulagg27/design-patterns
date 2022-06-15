@@ -1,6 +1,10 @@
 package factory;
 
-import static factory.TransportType.TRUCK;
+import factory.domain.Ship;
+import factory.domain.TransportType;
+import factory.domain.Truck;
+
+import static factory.domain.TransportType.TRUCK;
 
 public class TransportFactory {
 

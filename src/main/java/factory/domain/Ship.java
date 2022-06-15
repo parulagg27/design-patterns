@@ -1,20 +1,22 @@
-package factory;
+package factory.domain;
+
+import factory.Transport;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Truck implements Transport {
+public class Ship implements Transport {
 
     private final List<String> cargoStatus = new ArrayList<>();
 
     @Override
     public void loadCargo() {
-        cargoStatus.add("Loaded cargo on truck.\n");
+        cargoStatus.add("Loaded cargo on ship.\n");
     }
 
     @Override
     public void deliver() {
-        cargoStatus.add("Delivery initiated via truck.");
+        cargoStatus.add("Delivery shipment initiated.");
     }
 
     @Override
